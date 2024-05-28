@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D302F092BECBFF200F2BCFD /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D302F082BECBFF200F2BCFD /* PublishViewController.swift */; };
+		4D69B41A2BEA1A800095F086 /* WebRTC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D69B4192BEA1A800095F086 /* WebRTC.xcframework */; };
+		4D69B41B2BEA1A800095F086 /* WebRTC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D69B4192BEA1A800095F086 /* WebRTC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D69B4252BEA5E750095F086 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D69B4242BEA5E750095F086 /* Settings.swift */; };
+		4D97E97C2BF3A6FA00319038 /* PeerConnectionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97E97B2BF3A6FA00319038 /* PeerConnectionClient.swift */; };
+		4D97E97E2BF3A74400319038 /* PeerConnectionParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97E97D2BF3A74400319038 /* PeerConnectionParameters.swift */; };
+		4D97E9802BF3A74D00319038 /* WHIPCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97E97F2BF3A74D00319038 /* WHIPCoder.swift */; };
+		4D97E9822BF3B4E700319038 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97E9812BF3B4E700319038 /* Logger.swift */; };
+		4D97E9892BF3BC9100319038 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97E9882BF3BC9100319038 /* HTTPClient.swift */; };
+		4DCC27B42BEA192B0028FCDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC27B32BEA192B0028FCDA /* AppDelegate.swift */; };
+		4DCC27B62BEA192B0028FCDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC27B52BEA192B0028FCDA /* SceneDelegate.swift */; };
+		4DCC27B82BEA192B0028FCDA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC27B72BEA192B0028FCDA /* MainViewController.swift */; };
+		4DCC27BB2BEA192B0028FCDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC27B92BEA192B0028FCDA /* Main.storyboard */; };
+		4DCC27BD2BEA192D0028FCDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC27BC2BEA192D0028FCDA /* Assets.xcassets */; };
+		4DCC27C02BEA192D0028FCDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC27BE2BEA192D0028FCDA /* LaunchScreen.storyboard */; };
+		4DFC050D2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC050B2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift */; };
+		4DFC050E2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC050C2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift */; };
+		4DFC05102BF64AFD002698E3 /* RTCIceServer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC050F2BF64AFD002698E3 /* RTCIceServer+Extensions.swift */; };
+		D3122CBB2C05F49F0061C92D /* 05_Rowing_480p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB42C05F49F0061C92D /* 05_Rowing_480p.mp4 */; };
+		D3122CBC2C05F49F0061C92D /* 02_Bike_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB52C05F49F0061C92D /* 02_Bike_1080p.mp4 */; };
+		D3122CBD2C05F49F0061C92D /* 01_Son_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB62C05F49F0061C92D /* 01_Son_1080p.mp4 */; };
+		D3122CBE2C05F49F0061C92D /* 04_Fighter_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB72C05F49F0061C92D /* 04_Fighter_1080p.mp4 */; };
+		D3122CBF2C05F49F0061C92D /* 06_Bunny_480p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB82C05F49F0061C92D /* 06_Bunny_480p.mp4 */; };
+		D3122CC02C05F49F0061C92D /* 05_Rowing_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB92C05F49F0061C92D /* 05_Rowing_1080p.mp4 */; };
+		D3122CC12C05F49F0061C92D /* 06_Bunny_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CBA2C05F49F0061C92D /* 06_Bunny_1080p.mp4 */; };
+		D3A6DE2B2C0572EF00CA7F3A /* VideoRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6DE2A2C0572EF00CA7F3A /* VideoRenderView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4D69B41C2BEA1A800095F086 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D69B41B2BEA1A800095F086 /* WebRTC.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4D302F082BECBFF200F2BCFD /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		4D69B4192BEA1A800095F086 /* WebRTC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WebRTC.xcframework; path = Frameworks/WebRTC.xcframework; sourceTree = "<group>"; };
+		4D69B4242BEA5E750095F086 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4D69B4262BEA60A90095F086 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D97E97B2BF3A6FA00319038 /* PeerConnectionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionClient.swift; sourceTree = "<group>"; };
+		4D97E97D2BF3A74400319038 /* PeerConnectionParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionParameters.swift; sourceTree = "<group>"; };
+		4D97E97F2BF3A74D00319038 /* WHIPCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WHIPCoder.swift; sourceTree = "<group>"; };
+		4D97E9812BF3B4E700319038 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		4D97E9882BF3BC9100319038 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4DCC27B02BEA192B0028FCDA /* WHIPCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WHIPCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DCC27B32BEA192B0028FCDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4DCC27B52BEA192B0028FCDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4DCC27B72BEA192B0028FCDA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4DCC27BA2BEA192B0028FCDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4DCC27BC2BEA192D0028FCDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DCC27BF2BEA192D0028FCDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4DFC050B2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RTCVideoCodecInfo+Extensions.swift"; sourceTree = "<group>"; };
+		4DFC050C2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMVideoDimensions+Extensions.swift"; sourceTree = "<group>"; };
+		4DFC050F2BF64AFD002698E3 /* RTCIceServer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RTCIceServer+Extensions.swift"; sourceTree = "<group>"; };
+		D3122CB42C05F49F0061C92D /* 05_Rowing_480p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 05_Rowing_480p.mp4; path = ../../../../TestContents/05_Rowing_480p.mp4; sourceTree = "<group>"; };
+		D3122CB52C05F49F0061C92D /* 02_Bike_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 02_Bike_1080p.mp4; path = ../../../../TestContents/02_Bike_1080p.mp4; sourceTree = "<group>"; };
+		D3122CB62C05F49F0061C92D /* 01_Son_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 01_Son_1080p.mp4; path = ../../../../TestContents/01_Son_1080p.mp4; sourceTree = "<group>"; };
+		D3122CB72C05F49F0061C92D /* 04_Fighter_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04_Fighter_1080p.mp4; path = ../../../../TestContents/04_Fighter_1080p.mp4; sourceTree = "<group>"; };
+		D3122CB82C05F49F0061C92D /* 06_Bunny_480p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 06_Bunny_480p.mp4; path = ../../../../TestContents/06_Bunny_480p.mp4; sourceTree = "<group>"; };
+		D3122CB92C05F49F0061C92D /* 05_Rowing_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 05_Rowing_1080p.mp4; path = ../../../../TestContents/05_Rowing_1080p.mp4; sourceTree = "<group>"; };
+		D3122CBA2C05F49F0061C92D /* 06_Bunny_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 06_Bunny_1080p.mp4; path = ../../../../TestContents/06_Bunny_1080p.mp4; sourceTree = "<group>"; };
+		D3A6DE2A2C0572EF00CA7F3A /* VideoRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRenderView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DCC27AD2BEA192B0028FCDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D69B41A2BEA1A800095F086 /* WebRTC.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D69B4182BEA1A800095F086 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D69B4192BEA1A800095F086 /* WebRTC.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DCC27A72BEA192B0028FCDA = {
+			isa = PBXGroup;
+			children = (
+				4DCC27B22BEA192B0028FCDA /* WHIPCoder */,
+				4DCC27B12BEA192B0028FCDA /* Products */,
+				4D69B4182BEA1A800095F086 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4DCC27B12BEA192B0028FCDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DCC27B02BEA192B0028FCDA /* WHIPCoder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DCC27B22BEA192B0028FCDA /* WHIPCoder */ = {
+			isa = PBXGroup;
+			children = (
+				4D69B4262BEA60A90095F086 /* Info.plist */,
+				4DCC27B32BEA192B0028FCDA /* AppDelegate.swift */,
+				4D97E9882BF3BC9100319038 /* HTTPClient.swift */,
+				4D97E9812BF3B4E700319038 /* Logger.swift */,
+				4DCC27B72BEA192B0028FCDA /* MainViewController.swift */,
+				4D97E97B2BF3A6FA00319038 /* PeerConnectionClient.swift */,
+				4D97E97D2BF3A74400319038 /* PeerConnectionParameters.swift */,
+				4D302F082BECBFF200F2BCFD /* PublishViewController.swift */,
+				4DCC27B52BEA192B0028FCDA /* SceneDelegate.swift */,
+				4D69B4242BEA5E750095F086 /* Settings.swift */,
+				D3A6DE2A2C0572EF00CA7F3A /* VideoRenderView.swift */,
+				4D97E97F2BF3A74D00319038 /* WHIPCoder.swift */,
+				4DCC27BC2BEA192D0028FCDA /* Assets.xcassets */,
+				4DFC050A2BF64AD9002698E3 /* Extensions */,
+				4DCC27BE2BEA192D0028FCDA /* LaunchScreen.storyboard */,
+				4DCC27B92BEA192B0028FCDA /* Main.storyboard */,
+				4DFC05032BF5F598002698E3 /* resources */,
+			);
+			path = WHIPCoder;
+			sourceTree = "<group>";
+		};
+		4DFC05032BF5F598002698E3 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3122CB62C05F49F0061C92D /* 01_Son_1080p.mp4 */,
+				D3122CB52C05F49F0061C92D /* 02_Bike_1080p.mp4 */,
+				D3122CB72C05F49F0061C92D /* 04_Fighter_1080p.mp4 */,
+				D3122CB42C05F49F0061C92D /* 05_Rowing_480p.mp4 */,
+				D3122CB92C05F49F0061C92D /* 05_Rowing_1080p.mp4 */,
+				D3122CB82C05F49F0061C92D /* 06_Bunny_480p.mp4 */,
+				D3122CBA2C05F49F0061C92D /* 06_Bunny_1080p.mp4 */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		4DFC050A2BF64AD9002698E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DFC050B2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift */,
+				4DFC050C2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift */,
+				4DFC050F2BF64AFD002698E3 /* RTCIceServer+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4DCC27AF2BEA192B0028FCDA /* WHIPCoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DCC27C42BEA192D0028FCDA /* Build configuration list for PBXNativeTarget "WHIPCoder" */;
+			buildPhases = (
+				4DCC27AC2BEA192B0028FCDA /* Sources */,
+				4DCC27AD2BEA192B0028FCDA /* Frameworks */,
+				4DCC27AE2BEA192B0028FCDA /* Resources */,
+				4D69B41C2BEA1A800095F086 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WHIPCoder;
+			packageProductDependencies = (
+			);
+			productName = OMETester;
+			productReference = 4DCC27B02BEA192B0028FCDA /* WHIPCoder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DCC27A82BEA192B0028FCDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					4DCC27AF2BEA192B0028FCDA = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 4DCC27AB2BEA192B0028FCDA /* Build configuration list for PBXProject "WHIPCoder" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4DCC27A72BEA192B0028FCDA;
+			packageReferences = (
+			);
+			productRefGroup = 4DCC27B12BEA192B0028FCDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DCC27AF2BEA192B0028FCDA /* WHIPCoder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DCC27AE2BEA192B0028FCDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3122CC12C05F49F0061C92D /* 06_Bunny_1080p.mp4 in Resources */,
+				D3122CC02C05F49F0061C92D /* 05_Rowing_1080p.mp4 in Resources */,
+				D3122CBC2C05F49F0061C92D /* 02_Bike_1080p.mp4 in Resources */,
+				4DCC27C02BEA192D0028FCDA /* LaunchScreen.storyboard in Resources */,
+				D3122CBE2C05F49F0061C92D /* 04_Fighter_1080p.mp4 in Resources */,
+				4DCC27BD2BEA192D0028FCDA /* Assets.xcassets in Resources */,
+				D3122CBF2C05F49F0061C92D /* 06_Bunny_480p.mp4 in Resources */,
+				D3122CBD2C05F49F0061C92D /* 01_Son_1080p.mp4 in Resources */,
+				D3122CBB2C05F49F0061C92D /* 05_Rowing_480p.mp4 in Resources */,
+				4DCC27BB2BEA192B0028FCDA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DCC27AC2BEA192B0028FCDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D97E9802BF3A74D00319038 /* WHIPCoder.swift in Sources */,
+				4D97E9822BF3B4E700319038 /* Logger.swift in Sources */,
+				4DFC05102BF64AFD002698E3 /* RTCIceServer+Extensions.swift in Sources */,
+				4D97E9892BF3BC9100319038 /* HTTPClient.swift in Sources */,
+				4D97E97C2BF3A6FA00319038 /* PeerConnectionClient.swift in Sources */,
+				D3A6DE2B2C0572EF00CA7F3A /* VideoRenderView.swift in Sources */,
+				4D302F092BECBFF200F2BCFD /* PublishViewController.swift in Sources */,
+				4DCC27B82BEA192B0028FCDA /* MainViewController.swift in Sources */,
+				4DFC050E2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift in Sources */,
+				4D97E97E2BF3A74400319038 /* PeerConnectionParameters.swift in Sources */,
+				4DCC27B42BEA192B0028FCDA /* AppDelegate.swift in Sources */,
+				4D69B4252BEA5E750095F086 /* Settings.swift in Sources */,
+				4DFC050D2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift in Sources */,
+				4DCC27B62BEA192B0028FCDA /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4DCC27B92BEA192B0028FCDA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DCC27BA2BEA192B0028FCDA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DCC27BE2BEA192D0028FCDA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DCC27BF2BEA192D0028FCDA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4DCC27C22BEA192D0028FCDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"RTC_ENABLE_BFRAME=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME=1";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4DCC27C32BEA192D0028FCDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "RTC_ENABLE_BFRAME=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME=1";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4DCC27C52BEA192D0028FCDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 84TBJ2YM5A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WHIPCoder/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WHIPCoder;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME";
+				PRODUCT_BUNDLE_IDENTIFIER = com.airensoft.WHIPCoder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DCC27C62BEA192D0028FCDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 84TBJ2YM5A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WHIPCoder/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WHIPCoder;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME";
+				PRODUCT_BUNDLE_IDENTIFIER = com.airensoft.WHIPCoder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DCC27AB2BEA192B0028FCDA /* Build configuration list for PBXProject "WHIPCoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DCC27C22BEA192D0028FCDA /* Debug */,
+				4DCC27C32BEA192D0028FCDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DCC27C42BEA192D0028FCDA /* Build configuration list for PBXNativeTarget "WHIPCoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DCC27C52BEA192D0028FCDA /* Debug */,
+				4DCC27C62BEA192D0028FCDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4DCC27A82BEA192B0028FCDA /* Project object */;
+}
