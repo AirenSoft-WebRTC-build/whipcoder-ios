@@ -18,6 +18,17 @@ extension RTCVideoCodecInfo {
     return nil
   }
   
+  func h264ProfileLevelString(_ level: RTCH264Level) -> String {
+    switch level {
+    case .level1_b:
+      return "1b"
+      
+    default:
+      let value = level.rawValue
+      return "\(Int32(value / 10)).\(value % 10)"
+    }
+  }
+  
   func codecInfoString() -> String {
     var levelString: String?
     
@@ -32,7 +43,7 @@ extension RTCVideoCodecInfo {
         levelString = "unknown \(levelId)"
       }
       
-      levelString = " (\(levelString!))"
+      levelString = " (\(levelString!), \(h264ProfileLevelString(levelId.level)))"
     }
     
     return "\(name)\(levelString ?? "")"
