@@ -39,8 +39,8 @@ class PublishViewController: UIViewController, RTCPeerConnectionDelegate {
     settingLabel.text = [
       "Content: \(settings.mediaFileName)",
       "Codec: \(settings.videoCodecInfo?.codecInfoString() ?? "-")",
-      "Bitrate: \(settings.videoBitrate)",
-      "Framerate: \(settings.framerate)",
+      "Bitrate: \(settings.videoBitrate) Kbps",
+      "Framerate: \(settings.framerate) fps",
       "Use b-frame: \(settings.useBframe)",
     ].joined(separator: "\n")
 
