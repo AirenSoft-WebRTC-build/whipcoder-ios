@@ -48,4 +48,24 @@ extension RTCVideoCodecInfo {
     
         return "\(name)\(levelString ?? "")"
     }
+    
+    func getMimeType() -> String {
+        switch name {
+        case "H264": return "video/h264"
+        case "H265": return "video/h265"
+        case "VP8": return "video/vp8"
+        case "VP9": return "video/vp9"
+        case "AV1": return "video/av1"
+        default: return ""
+        }
+    }
+    
+    func isEqual(to capability: RTCRtpCodecCapability) -> Bool {
+        let mimeType = getMimeType()
+        
+        return
+            (capability.mimeType.caseInsensitiveCompare(mimeType) == .orderedSame) &&
+            (capability.kind == kRTCMediaStreamTrackKindVideo) &&
+            (parameters == capability.parameters)
+    }
 }
