@@ -61,13 +61,13 @@ class PeerConnectionClient {
             throw PeerConnectionError.invalidState
         }
 
-        #if RTC_ENABLE_BFRAME
+#if RTC_ENABLE_BFRAME
         let decoderFactory = RTCDefaultVideoDecoderFactory()
         let encoderFactory = RTCDefaultVideoEncoderFactory(bframe: parameters.useBframe)
-        #else // RTC_ENABLE_BFRAME
+#else // RTC_ENABLE_BFRAME
         let decoderFactory = RTCDefaultVideoDecoderFactory()
         let encoderFactory = RTCDefaultVideoEncoderFactory()
-        #endif // RTC_ENABLE_BFRAME
+#endif // RTC_ENABLE_BFRAME
 
         encoderFactory.preferredCodec = parameters.preferredCodecInfo
 
@@ -95,7 +95,7 @@ class PeerConnectionClient {
         config.bundlePolicy = .maxBundle
         config.rtcpMuxPolicy = .require
         config.continualGatheringPolicy = .gatherOnce
-        config.enableCpuAdaptation = false
+//        config.enableCpuAdaptation = false
         config.keyType = .ECDSA
         config.sdpSemantics = .unifiedPlan
 

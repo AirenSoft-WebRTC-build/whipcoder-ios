@@ -197,11 +197,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         case .codec:
             let codecInfo = videoCodecInfos[indexPath.row]
+#if RTC_ENABLE_BFRAME
             return tableViewCellNormal(
                 tableView: tableView, cellForRowAt: indexPath,
                 title: ({ codecInfo.codecInfoString() })(),
                 isChecked: settings.videoCodecInfo?.isEqual(toCodecInfoWithoutBframe: codecInfo) ?? false
             )
+#else // RTC_ENABLE_BFRAME
+            return tableViewCellNormal(
+                tableView: tableView, cellForRowAt: indexPath,
+                title: ({ codecInfo.codecInfoString() })(),
+                isChecked: settings.videoCodecInfo?.isEqual(to: codecInfo) ?? false
+            )
+#endif // RTC_ENABLE_BFRAME
 
         case .bitrate:
             return tableViewCellTextField(
