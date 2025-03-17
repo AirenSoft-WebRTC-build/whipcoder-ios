@@ -25,14 +25,11 @@
 		4DFC050D2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC050B2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift */; };
 		4DFC050E2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC050C2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift */; };
 		4DFC05102BF64AFD002698E3 /* RTCIceServer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC050F2BF64AFD002698E3 /* RTCIceServer+Extensions.swift */; };
-		D3122CBB2C05F49F0061C92D /* 05_Rowing_480p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB42C05F49F0061C92D /* 05_Rowing_480p.mp4 */; };
-		D3122CBC2C05F49F0061C92D /* 02_Bike_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB52C05F49F0061C92D /* 02_Bike_1080p.mp4 */; };
-		D3122CBD2C05F49F0061C92D /* 01_Son_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB62C05F49F0061C92D /* 01_Son_1080p.mp4 */; };
-		D3122CBE2C05F49F0061C92D /* 04_Fighter_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB72C05F49F0061C92D /* 04_Fighter_1080p.mp4 */; };
-		D3122CBF2C05F49F0061C92D /* 06_Bunny_480p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB82C05F49F0061C92D /* 06_Bunny_480p.mp4 */; };
-		D3122CC02C05F49F0061C92D /* 05_Rowing_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CB92C05F49F0061C92D /* 05_Rowing_1080p.mp4 */; };
-		D3122CC12C05F49F0061C92D /* 06_Bunny_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3122CBA2C05F49F0061C92D /* 06_Bunny_1080p.mp4 */; };
 		D3A6DE2B2C0572EF00CA7F3A /* VideoRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6DE2A2C0572EF00CA7F3A /* VideoRenderView.swift */; };
+		D3D43D832C0B43F900260D6F /* 05_Rowing_1080-20mbps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3D43D7D2C0B43F900260D6F /* 05_Rowing_1080-20mbps.mp4 */; };
+		D3D43D852C0B43F900260D6F /* 05_Rowing_1080-10mbps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3D43D7F2C0B43F900260D6F /* 05_Rowing_1080-10mbps.mp4 */; };
+		D3D43D862C0B43F900260D6F /* 05_Rowing_480W-20mbps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3D43D802C0B43F900260D6F /* 05_Rowing_480W-20mbps.mp4 */; };
+		D3D43D882C0B43F900260D6F /* 05_Rowing_480W-10mbps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D3D43D822C0B43F900260D6F /* 05_Rowing_480W-10mbps.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,14 +66,11 @@
 		4DFC050B2BF64AD9002698E3 /* RTCVideoCodecInfo+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RTCVideoCodecInfo+Extensions.swift"; sourceTree = "<group>"; };
 		4DFC050C2BF64AD9002698E3 /* CMVideoDimensions+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMVideoDimensions+Extensions.swift"; sourceTree = "<group>"; };
 		4DFC050F2BF64AFD002698E3 /* RTCIceServer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RTCIceServer+Extensions.swift"; sourceTree = "<group>"; };
-		D3122CB42C05F49F0061C92D /* 05_Rowing_480p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 05_Rowing_480p.mp4; path = ../../../../TestContents/05_Rowing_480p.mp4; sourceTree = "<group>"; };
-		D3122CB52C05F49F0061C92D /* 02_Bike_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 02_Bike_1080p.mp4; path = ../../../../TestContents/02_Bike_1080p.mp4; sourceTree = "<group>"; };
-		D3122CB62C05F49F0061C92D /* 01_Son_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 01_Son_1080p.mp4; path = ../../../../TestContents/01_Son_1080p.mp4; sourceTree = "<group>"; };
-		D3122CB72C05F49F0061C92D /* 04_Fighter_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04_Fighter_1080p.mp4; path = ../../../../TestContents/04_Fighter_1080p.mp4; sourceTree = "<group>"; };
-		D3122CB82C05F49F0061C92D /* 06_Bunny_480p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 06_Bunny_480p.mp4; path = ../../../../TestContents/06_Bunny_480p.mp4; sourceTree = "<group>"; };
-		D3122CB92C05F49F0061C92D /* 05_Rowing_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 05_Rowing_1080p.mp4; path = ../../../../TestContents/05_Rowing_1080p.mp4; sourceTree = "<group>"; };
-		D3122CBA2C05F49F0061C92D /* 06_Bunny_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = 06_Bunny_1080p.mp4; path = ../../../../TestContents/06_Bunny_1080p.mp4; sourceTree = "<group>"; };
 		D3A6DE2A2C0572EF00CA7F3A /* VideoRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRenderView.swift; sourceTree = "<group>"; };
+		D3D43D7D2C0B43F900260D6F /* 05_Rowing_1080-20mbps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "05_Rowing_1080-20mbps.mp4"; sourceTree = "<group>"; };
+		D3D43D7F2C0B43F900260D6F /* 05_Rowing_1080-10mbps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "05_Rowing_1080-10mbps.mp4"; sourceTree = "<group>"; };
+		D3D43D802C0B43F900260D6F /* 05_Rowing_480W-20mbps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "05_Rowing_480W-20mbps.mp4"; sourceTree = "<group>"; };
+		D3D43D822C0B43F900260D6F /* 05_Rowing_480W-10mbps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "05_Rowing_480W-10mbps.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,13 +137,10 @@
 		4DFC05032BF5F598002698E3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				D3122CB62C05F49F0061C92D /* 01_Son_1080p.mp4 */,
-				D3122CB52C05F49F0061C92D /* 02_Bike_1080p.mp4 */,
-				D3122CB72C05F49F0061C92D /* 04_Fighter_1080p.mp4 */,
-				D3122CB42C05F49F0061C92D /* 05_Rowing_480p.mp4 */,
-				D3122CB92C05F49F0061C92D /* 05_Rowing_1080p.mp4 */,
-				D3122CB82C05F49F0061C92D /* 06_Bunny_480p.mp4 */,
-				D3122CBA2C05F49F0061C92D /* 06_Bunny_1080p.mp4 */,
+				D3D43D822C0B43F900260D6F /* 05_Rowing_480W-10mbps.mp4 */,
+				D3D43D802C0B43F900260D6F /* 05_Rowing_480W-20mbps.mp4 */,
+				D3D43D7F2C0B43F900260D6F /* 05_Rowing_1080-10mbps.mp4 */,
+				D3D43D7D2C0B43F900260D6F /* 05_Rowing_1080-20mbps.mp4 */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -183,7 +174,7 @@
 			name = WHIPCoder;
 			packageProductDependencies = (
 			);
-			productName = OMETester;
+			productName = WHIPCoder;
 			productReference = 4DCC27B02BEA192B0028FCDA /* WHIPCoder.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -227,16 +218,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3122CC12C05F49F0061C92D /* 06_Bunny_1080p.mp4 in Resources */,
-				D3122CC02C05F49F0061C92D /* 05_Rowing_1080p.mp4 in Resources */,
-				D3122CBC2C05F49F0061C92D /* 02_Bike_1080p.mp4 in Resources */,
+				D3D43D852C0B43F900260D6F /* 05_Rowing_1080-10mbps.mp4 in Resources */,
 				4DCC27C02BEA192D0028FCDA /* LaunchScreen.storyboard in Resources */,
-				D3122CBE2C05F49F0061C92D /* 04_Fighter_1080p.mp4 in Resources */,
 				4DCC27BD2BEA192D0028FCDA /* Assets.xcassets in Resources */,
-				D3122CBF2C05F49F0061C92D /* 06_Bunny_480p.mp4 in Resources */,
-				D3122CBD2C05F49F0061C92D /* 01_Son_1080p.mp4 in Resources */,
-				D3122CBB2C05F49F0061C92D /* 05_Rowing_480p.mp4 in Resources */,
 				4DCC27BB2BEA192B0028FCDA /* Main.storyboard in Resources */,
+				D3D43D882C0B43F900260D6F /* 05_Rowing_480W-10mbps.mp4 in Resources */,
+				D3D43D862C0B43F900260D6F /* 05_Rowing_480W-20mbps.mp4 in Resources */,
+				D3D43D832C0B43F900260D6F /* 05_Rowing_1080-20mbps.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME";
+				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME_";
 				PRODUCT_BUNDLE_IDENTIFIER = com.airensoft.WHIPCoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -462,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME";
+				OTHER_SWIFT_FLAGS = "-DRTC_ENABLE_BFRAME_";
 				PRODUCT_BUNDLE_IDENTIFIER = com.airensoft.WHIPCoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

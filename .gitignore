@@ -151,5 +151,6 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcode,visualstudiocode
-**/resources/*.mp4
-**/resources/*.y4m
+WHIPCoder/resources/*.mp4
+WHIPCoder/resources/*.y4m
+Frameworks/WebRTC.xcframework
