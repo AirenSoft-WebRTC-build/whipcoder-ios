@@ -11,9 +11,14 @@ import WebRTC
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//    RTCSetMinDebugLogLevel(RTCLoggingSeverity.verbose)
+        // RTCSetMinDebugLogLevel(RTCLoggingSeverity.verbose)
 
-        RTCInitFieldTrialDictionary([:])
+        RTCInitFieldTrialDictionary([
+            "WebRTC-LegacySimulcastLayerLimit": "Disabled",
+            "WebRTC-SpsPpsIdrIsH264Keyframe": "Enabled",
+            "WebRTC-VideoLayersAllocationAdvertised": "Enabled",
+        ])
+
         RTCInitializeSSL()
         RTCSetupInternalTracer()
 
