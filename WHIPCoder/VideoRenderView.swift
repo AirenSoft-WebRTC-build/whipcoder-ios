@@ -2,7 +2,7 @@
 //  VideoRenderView.swift
 //  WHIPCoder
 //
-//  Created by Jang, Hyunjun [C] on 5/28/24.
+//  Created by dimiden on 5/28/24.
 //
 
 import WebRTC

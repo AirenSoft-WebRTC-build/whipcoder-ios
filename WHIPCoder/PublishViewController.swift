@@ -36,13 +36,22 @@ class PublishViewController: UIViewController, RTCPeerConnectionDelegate {
 
         let settings = Settings.shared
 
-        settingLabel.text = [
+        var infos = [
             "Content: \(settings.mediaFileName)",
-            "Codec: \(settings.videoCodecInfo?.codecInfoString() ?? "-")",
-            "Bitrate: \(settings.videoBitrate) Kbps",
-            "Framerate: \(settings.framerate) fps",
-            "Use b-frame: \(settings.useBframe)",
-        ].joined(separator: "\n")
+            "Codec: \(settings.videoCodecInfo?.codecInfoString() ?? "-")"
+        ]
+
+        if settings.useSimulcast {
+            infos.append("Simulcast is enabled")
+        } else {
+            infos.append("Bitrate: \(settings.videoBitrate) Kbps")
+            infos.append("Framerate: \(settings.framerate) fps")
+        }
+#if RTC_ENABLE_BFRAME
+        infos.append("Use b-frame: \(settings.useBframe)")
+#endif // RTC_ENABLE_BFRAME
+
+        settingLabel.text = infos.joined(separator: "\n")
 
         do {
             try preparePeerConnectionClient(settings: settings)

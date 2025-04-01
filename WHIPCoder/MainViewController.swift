@@ -10,6 +10,7 @@ import WebRTC
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     private let logger: Logger = .init(MainViewController.self)
+
     @IBOutlet var urlTextField: UITextField!
     @IBOutlet var startButton: UIButton!
     @IBOutlet var tableViewBottomConstraint: NSLayoutConstraint!
@@ -29,6 +30,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         urlTextField.addTarget(self, action: #selector(endpointUrlWasChanged), for: .editingChanged)
         urlTextField.text = Settings.shared.endpointUrl
+
         startButton.isEnabled = (Settings.shared.endpointUrl.isEmpty == false)
     }
 
@@ -66,9 +68,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
+#if RTC_ENABLE_BFRAME
     @objc func bframeSwitchChanged(sender: UISwitch) {
         DispatchQueue.main.async {
             Settings.shared.useBframe = sender.isOn
+            self.tableView.reloadData()
+        }
+    }
+#endif // RTC_ENABLE_BFRAME
+
+    @objc func simulcastSwitchChanged(sender: UISwitch) {
+        DispatchQueue.main.async {
+            Settings.shared.useSimulcast = sender.isOn
+
+            if sender.isOn {}
             self.tableView.reloadData()
         }
     }
@@ -147,7 +160,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - TableView
 
     enum Sections: CaseIterable {
+#if RTC_ENABLE_BFRAME
         case bframe
+#endif // RTC_ENABLE_BFRAME
+        case simulcast
         case codec
         case bitrate
         case framerate
@@ -162,7 +178,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return switch Sections.allCases[section] {
+#if RTC_ENABLE_BFRAME
         case .bframe: "B-frame"
+#endif // RTC_ENABLE_BFRAME
+        case .simulcast: "Simulcast"
         case .codec: "Video codec"
         case .bitrate: "Maximum bitrate (Kbps)"
         case .framerate: "Framerate"
@@ -173,7 +192,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return switch Sections.allCases[section] {
+#if RTC_ENABLE_BFRAME
         case .bframe: 1
+#endif // RTC_ENABLE_BFRAME
+        case .simulcast: 1
         case .codec: videoCodecInfos.count
         case .bitrate: 1
         case .framerate: framerates.count
@@ -187,6 +209,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let settings = Settings.shared
 
         switch section {
+#if RTC_ENABLE_BFRAME
         case .bframe:
             return tableViewCellSwitch(
                 tableView: tableView, cellForRowAt: indexPath,
@@ -194,28 +217,36 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 isOn: settings.useBframe,
                 action: #selector(bframeSwitchChanged)
             )
+#endif // RTC_ENABLE_BFRAME
+
+        case .simulcast:
+            return tableViewCellSwitch(
+                tableView: tableView, cellForRowAt: indexPath,
+                title: "Enable Simulcast",
+                isOn: settings.useSimulcast,
+                action: #selector(simulcastSwitchChanged)
+            )
 
         case .codec:
             let codecInfo = videoCodecInfos[indexPath.row]
 #if RTC_ENABLE_BFRAME
-            return tableViewCellNormal(
-                tableView: tableView, cellForRowAt: indexPath,
-                title: ({ codecInfo.codecInfoString() })(),
-                isChecked: settings.videoCodecInfo?.isEqual(toCodecInfoWithoutBframe: codecInfo) ?? false
-            )
+            let isChecked = settings.videoCodecInfo?.isEqual(toCodecInfoWithoutBframe: codecInfo) ?? false
 #else // RTC_ENABLE_BFRAME
+            let isChecked = settings.videoCodecInfo?.isEqual(to: codecInfo) ?? false
+#endif // RTC_ENABLE_BFRAME
             return tableViewCellNormal(
                 tableView: tableView, cellForRowAt: indexPath,
                 title: ({ codecInfo.codecInfoString() })(),
-                isChecked: settings.videoCodecInfo?.isEqual(to: codecInfo) ?? false
+                isChecked: isChecked,
+                enabled: true
             )
-#endif // RTC_ENABLE_BFRAME
 
         case .bitrate:
             return tableViewCellTextField(
                 tableView: tableView, cellForRowAt: indexPath,
                 placeholder: "Enter max bitrate (Kbps)",
                 value: "\(settings.videoBitrate)",
+                enabled: settings.useSimulcast == false,
                 action: #selector(bitrateChanged)
             )
 
@@ -224,7 +255,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             return tableViewCellNormal(
                 tableView: tableView, cellForRowAt: indexPath,
                 title: "\(framerate)",
-                isChecked: framerate == settings.framerate
+                isChecked: framerate == settings.framerate,
+                enabled: settings.useSimulcast == false
             )
 
         case .mediaFile:
@@ -232,7 +264,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             return tableViewCellNormal(
                 tableView: tableView, cellForRowAt: indexPath,
                 title: "\(mediaFileName)",
-                isChecked: mediaFileName == settings.mediaFileName
+                isChecked: mediaFileName == settings.mediaFileName,
+                enabled: true
             )
 
         case .resolution:
@@ -240,7 +273,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             return tableViewCellNormal(
                 tableView: tableView, cellForRowAt: indexPath,
                 title: res.resolutionString(),
-                isChecked: res.isEquals(settings.resolution)
+                isChecked: res.isEquals(settings.resolution),
+                enabled: settings.useSimulcast == false
             )
         }
     }
@@ -262,12 +296,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableViewCellNormal(
         tableView: UITableView, cellForRowAt indexPath: IndexPath,
-        title: String, isChecked: Bool
+        title: String, isChecked: Bool, enabled: Bool
     ) -> UITableViewCell {
         let cell = tableViewCell(withIdentifier: "NormalCellIdentifier", tableView: tableView, cellForRowAt: indexPath)
 
         cell.textLabel?.text = title
         cell.accessoryType = isChecked ? .checkmark : .none
+
+        cell.isUserInteractionEnabled = enabled
+        cell.textLabel?.textColor = enabled ? UIColor.black : UIColor.gray
+        cell.detailTextLabel?.textColor = enabled ? UIColor.black : UIColor.gray
+
+        cell.backgroundColor = enabled ? UIColor.white : UIColor.lightGray.withAlphaComponent(0.5)
 
         return cell
     }
@@ -294,7 +334,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableViewCellTextField(
         tableView: UITableView, cellForRowAt indexPath: IndexPath,
-        placeholder: String, value: String, action: Selector
+        placeholder: String, value: String, enabled: Bool, action: Selector
     ) -> UITableViewCell {
         let cell = tableViewCell(withIdentifier: "CellWithTextFieldIdentifier", tableView: tableView, cellForRowAt: indexPath)
 
@@ -304,6 +344,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         textField.placeholder = placeholder
         textField.removeTarget(nil, action: nil, for: .allEvents)
         textField.addTarget(self, action: action, for: .editingDidEnd)
+        textField.isEnabled = enabled
+        textField.textColor = enabled ? UIColor.black : UIColor.lightGray
+        textField.backgroundColor = UIColor.clear
+
+        cell.backgroundColor = enabled ? UIColor.white : UIColor.lightGray.withAlphaComponent(0.5)
 
         return cell
     }

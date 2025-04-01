@@ -13,7 +13,10 @@ class Settings {
     private enum ConfigKeys: String {
         case endpointUrl = "WHIPCoder.Config.endpointUrl"
         case iceServerStrings = "WHIPCoder.Config.iceServerStrings"
+#if RTC_ENABLE_BFRAME
         case useBframe = "WHIPCoder.Config.useBframe"
+#endif // RTC_ENABLE_BFRAME
+        case useSimulcast = "WHIPCoder.Config.useSimulcast"
         case videoCodecInfo = "WHIPCoder.Config.videoCodecInfo"
         case videoBitrate = "WHIPCoder.Config.videoBitrate"
         case framerate = "WHIPCoder.Config.framerate"
@@ -108,9 +111,16 @@ class Settings {
         set { set(newValue, forKey: ConfigKeys.iceServerStrings) }
     }
 
+#if RTC_ENABLE_BFRAME
     var useBframe: Bool {
         get { get(ConfigKeys.useBframe, default: false) }
         set { set(newValue, forKey: ConfigKeys.useBframe) }
+    }
+#endif // RTC_ENABLE_BFRAME
+
+    var useSimulcast: Bool {
+        get { get(ConfigKeys.useSimulcast, default: false) }
+        set { set(newValue, forKey: ConfigKeys.useSimulcast) }
     }
 
     var videoCodecInfo: RTCVideoCodecInfo? {

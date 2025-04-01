@@ -61,15 +61,16 @@ class PeerConnectionClient {
             throw PeerConnectionError.invalidState
         }
 
+        let decoderFactory = RTCDefaultVideoDecoderFactory()
 #if RTC_ENABLE_BFRAME
-        let decoderFactory = RTCDefaultVideoDecoderFactory()
-        let encoderFactory = RTCDefaultVideoEncoderFactory(bframe: parameters.useBframe)
+        let primaryFactory = RTCDefaultVideoEncoderFactory(bframe: parameters.useBframe)
 #else // RTC_ENABLE_BFRAME
-        let decoderFactory = RTCDefaultVideoDecoderFactory()
-        let encoderFactory = RTCDefaultVideoEncoderFactory()
+        let primaryFactory = RTCDefaultVideoEncoderFactory()
 #endif // RTC_ENABLE_BFRAME
 
-        encoderFactory.preferredCodec = parameters.preferredCodecInfo
+        let encoderFactory: RTCVideoEncoderFactory = (parameters.useSimulcast)
+            ? RTCVideoEncoderFactorySimulcast(primary: primaryFactory, fallback: RTCDefaultVideoEncoderFactory())
+            : primaryFactory
 
         let factory = RTCPeerConnectionFactory(
             encoderFactory: encoderFactory,
@@ -116,12 +117,34 @@ class PeerConnectionClient {
             localVideoTrack?.add(renderer!)
         }
 
-        peerConnection.add(localVideoTrack!, streamIds: Self.kMediaStreamId)
+        let transceiverInit = RTCRtpTransceiverInit()
+        transceiverInit.direction = .sendOnly
 
-        // Set the bitrate
-        for sender in peerConnection.senders {
-            if sender.track?.kind == Self.kVideoTrackKind {
-                setEncodingParameters(maxBitrate: parameters.videoBitrate, maxFramerate: parameters.framerate, forVideoSender: sender)
+        if parameters.useSimulcast {
+            transceiverInit.sendEncodings = [
+                createRtpEncodingParameters(rid: "low", minBitrate: 100_000, maxBitrate: 500_000, fps: 15),
+                createRtpEncodingParameters(rid: "mid", minBitrate: 100_000, maxBitrate: 1_000_000, fps: 15),
+                createRtpEncodingParameters(rid: "high", minBitrate: 100_000, maxBitrate: 2_000_000, fps: 30),
+            ]
+        } else {
+            transceiverInit.sendEncodings = [
+                createRtpEncodingParameters(bitrate: parameters.videoBitrate * 1000, fps: parameters.framerate),
+            ]
+        }
+
+        let transceiver = peerConnection.addTransceiver(
+            with: localVideoTrack!,
+            init: transceiverInit
+        )
+
+        let preferredCodec = parameters.preferredCodecInfo
+        let capabilities = factory.rtpSenderCapabilities(forKind: kRTCMediaStreamTrackKindVideo)
+
+        for capability in capabilities.codecs {
+            if preferredCodec.isEqual(to: capability) {
+                logger.info("Capability found for preferredCodec: \(preferredCodec.codecInfoString()), found: \(capability)")
+                try transceiver?.setCodecPreferences([capability], error: ())
+                break
             }
         }
 
@@ -129,22 +152,26 @@ class PeerConnectionClient {
         return peerConnection
     }
 
-    private func setEncodingParameters(maxBitrate: Int32, maxFramerate: Int16, forVideoSender sender: RTCRtpSender) {
-        if maxBitrate <= 0 {
-            return
-        }
+    private func createRtpEncodingParameters(rid: String, minBitrate: Int32, maxBitrate: Int32, fps: Int16) -> RTCRtpEncodingParameters {
+        let encoding = RTCRtpEncodingParameters()
 
-        logger.info("Encoding parameters: bitrate: \(maxBitrate)kbps, framerate: \(maxFramerate)fps")
+        encoding.rid = rid
+        encoding.isActive = true
+        encoding.minBitrateBps = NSNumber(value: minBitrate)
+        encoding.maxBitrateBps = NSNumber(value: maxBitrate)
+        encoding.maxFramerate = NSNumber(value: fps)
 
-        let parametersToModify = sender.parameters
+        return encoding
+    }
 
-        for encoding in parametersToModify.encodings {
-            logger.info("Applying parameters to \(encoding.debugDescription)")
-            encoding.maxBitrateBps = NSNumber(value: maxBitrate * 1000)
-            encoding.maxFramerate = NSNumber(value: maxFramerate)
-        }
+    private func createRtpEncodingParameters(bitrate: Int32, fps: Int16) -> RTCRtpEncodingParameters {
+        let encoding = RTCRtpEncodingParameters()
 
-        sender.parameters = parametersToModify
+        encoding.isActive = true
+        encoding.maxBitrateBps = NSNumber(value: bitrate)
+        encoding.maxFramerate = NSNumber(value: fps)
+
+        return encoding
     }
 
     private func createOffer(
