@@ -138,15 +138,19 @@ class PeerConnectionClient {
         )
 
         let preferredCodec = parameters.preferredCodecInfo
-        let capabilities = factory.rtpSenderCapabilities(forKind: kRTCMediaStreamTrackKindVideo)
+        let codecs = factory.rtpSenderCapabilities(forKind: kRTCMediaStreamTrackKindVideo).codecs
+        var newCodecs: [RTCRtpCodecCapability] = []
 
-        for capability in capabilities.codecs {
+        for capability in codecs {
             if preferredCodec.isEqual(to: capability) {
                 logger.info("Capability found for preferredCodec: \(preferredCodec.codecInfoString()), found: \(capability)")
-                try transceiver?.setCodecPreferences([capability], error: ())
-                break
+                newCodecs.insert(capability, at: 0)
+            } else {
+                newCodecs.append(capability)
             }
         }
+
+        try transceiver?.setCodecPreferences(newCodecs, error: ())
 
         self.peerConnection = peerConnection
         return peerConnection
